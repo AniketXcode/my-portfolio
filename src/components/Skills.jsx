@@ -1,49 +1,64 @@
-// src/components/Skills.jsx
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 const skills = [
-  { name: 'HTML', level: '95%' },
-  { name: 'CSS', level: '90%' },
-  { name: 'JavaScript', level: '85%' },
-  { name: 'React.js', level: '80%' },
-  { name: 'Tailwind CSS', level: '85%' },
- 
+  { name: "HTML", level: "95%" },
+  { name: "CSS", level: "90%" },
+  { name: "JavaScript", level: "85%" },
+  { name: "React.js", level: "80%" },
+  { name: "Node.js", level: "85%" },
+  { name: "Express.js", level: "80%" },
 ];
 
-const Skills = () => {
+export default function Skills() {
   return (
-    <section id="skills" className="min-h-screen flex flex-col items-center justify-center px-6 py-12 bg-white dark:bg-gray-900 text-gray-800 dark:text-white" style={{ boxShadow: "0px 0px 12px rgba(3, 136, 255, 1)" }}>
-      
-      <h2 className="text-4xl font-bold mb-10">My Skills</h2>
+    <section
+      id="skills"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-black text-white"
+    >
+      {/* Radial Glow Background */}
+      <div className="absolute inset-0 flex items-center justify-center -z-10">
+        <div className="w-[900px] h-[900px] bg-gradient-to-r from-blue-800/30 via-cyan-600/20 to-purple-700/20 blur-[160px] rounded-full" />
+      </div>
 
-      <div className="w-full max-w-3xl space-y-8">
+      {/* Title */}
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-5xl font-extrabold mb-14 bg-gradient-to-r from-blue-300 to-cyan-200 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(0,200,255,0.4)]"
+      >
+        Skills
+      </motion.h2>
+
+      {/* Skills Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-4xl">
         {skills.map((skill, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="w-full"
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_40px_rgba(0,0,0,0.35)] hover:shadow-[0_10px_50px_rgba(0,200,255,0.25)] transition-all"
           >
-            <div className="flex justify-between mb-2">
-              <span className="text-lg font-medium">{skill.name}</span>
-              <span className="text-sm font-semibold text-blue-500">{skill.level}</span>
+            {/* Skill Header */}
+            <div className="flex justify-between mb-3">
+              <p className="font-semibold text-lg text-gray-200">{skill.name}</p>
+              <p className="font-semibold text-cyan-300 text-sm">{skill.level}</p>
             </div>
 
-            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 overflow-hidden" style={{ boxShadow: "0px 0px 12px rgba(3, 136, 255, 1)" }}>
-              <div
-                className="h-4 bg-gradient-to-r from-blue-400 to-blue-600 dark:from-blue-500 dark:to-blue-700 rounded-full transition-all duration-700 hover:scale-x-105 origin-left"
-                style={{ width: skill.level }}
-                
-              ></div>
+            {/* Progress Bar Track */}
+            <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: skill.level }}
+                transition={{ duration: 1.1, ease: "easeOut" }}
+                className="h-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 shadow-[0_0_12px_rgba(0,200,255,0.7)]"
+              />
             </div>
           </motion.div>
         ))}
       </div>
-
     </section>
   );
-};
-
-export default Skills;
+}

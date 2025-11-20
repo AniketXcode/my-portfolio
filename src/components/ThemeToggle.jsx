@@ -1,54 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { FaMoon, FaSun } from "react-icons/fa";
 
-const ThemeToggle = () => {
+export default function ThemeToggle() {
   const [darkMode, setDarkMode] = useState(false);
 
-  // Detect system theme preference on mount
   useEffect(() => {
-    const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setDarkMode(userPrefersDark); // Set initial theme based on system preference
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setDarkMode(prefersDark);
+    if (prefersDark) document.documentElement.classList.add("dark");
 
-    // Apply the dark mode class on document element
-    if (userPrefersDark) {
-      document.documentElement.classList.add('dark');
-    }
-
-    // Watch for theme preference changes
-    const themeChangeListener = (e) => {
+    const listener = (e) => {
       setDarkMode(e.matches);
-      if (e.matches) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      document.documentElement.classList.toggle("dark", e.matches);
     };
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', themeChangeListener);
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", listener);
 
-    // Cleanup listener on component unmount
-    return () => {
-      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', themeChangeListener);
-    };
+    return () =>
+      window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", listener);
   }, []);
 
-  // Toggle dark mode manually when clicked
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
   return (
-    <button
+    <motion.button
       onClick={() => setDarkMode(!darkMode)}
-      className="text-xl text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-yellow-400 transition duration-300"
+      whileHover={{ scale: 1.2 }}
+      whileTap={{ scale: 0.9 }}
+      className="relative w-12 h-12 flex items-center justify-center rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 shadow-lg hover:shadow-[0_0_15px_rgba(0,200,255,0.5)] transition-all"
     >
-      {darkMode ? <FaSun /> : <FaMoon />}
-    </button>
+      {darkMode ? (
+        <FaSun className="text-yellow-300 drop-shadow-[0_0_6px_rgba(255,200,0,0.7)]" size={20} />
+      ) : (
+        <FaMoon className="text-blue-300 drop-shadow-[0_0_8px_rgba(0,150,255,0.6)]" size={20} />
+      )}
+    </motion.button>
   );
-};
-
-export default ThemeToggle;
+}

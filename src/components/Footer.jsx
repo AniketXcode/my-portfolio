@@ -1,93 +1,64 @@
-// src/components/Footer.jsx
 import React from "react";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedin,
-} from "react-icons/fa";
 import { motion } from "framer-motion";
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+export default function Footer() {
+  const year = new Date().getFullYear();
 
   return (
-    <>
-      <hr className="border-gray-700" style={{ boxShadow: "0px 0px 12px rgba(3, 136, 255, 1)" }} />
-      <motion.footer
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="py-12 text-white dark:bg-gray-950 dark:text-gray-300 bg-gray-800"
-        style={{ boxShadow: "0px 0px 12px rgba(3, 136, 255, 1)" }}
-      >
-        <div className="max-w-screen-2xl container mx-auto px-4 md:px-20">
-          <div className="flex flex-col items-center justify-center">
-            {/* Social Icons */}
-            <motion.div
-              className="flex space-x-6 mb-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-            >
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="text-white hover:text-blue-500 transition duration-300"
-              >
-                <FaFacebook size={24} />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="text-white hover:text-pink-500 transition duration-300"
-              >
-                <FaInstagram size={24} />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-                className="text-white hover:text-sky-400 transition duration-300"
-              >
-                <FaTwitter size={24} />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="text-white hover:text-blue-600 transition duration-300"
-              >
-                <FaLinkedin size={24} />
-              </a>
-            </motion.div>
+    <footer className="relative bg-black text-white py-16 mt-20 overflow-hidden">
+      {/* Glow background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute w-[700px] h-[700px] bg-gradient-to-r from-blue-600/20 via-cyan-500/20 to-purple-600/20 blur-[160px] rounded-full left-1/2 top-0 -translate-x-1/2" />
+      </div>
 
-            {/* Footer Text */}
-            <motion.div
-              className="border-t border-gray-700 w-full pt-6 text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
+      {/* Separator line with glow */}
+      <div className="w-full h-[1px] bg-white/10 mb-10 shadow-[0_0_20px_rgba(0,200,255,0.5)]"></div>
+
+      <div className="max-w-4xl mx-auto flex flex-col items-center text-center px-6">
+        {/* Social Icons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex gap-6 mb-8"
+        >
+          {[
+            { icon: <FaFacebook />, color: "hover:text-blue-500" },
+            { icon: <FaInstagram />, color: "hover:text-pink-500" },
+            { icon: <FaTwitter />, color: "hover:text-cyan-400" },
+            { icon: <FaLinkedin />, color: "hover:text-blue-600" },
+          ].map((item, i) => (
+            <motion.a
+              key={i}
+              href="#"
+              whileHover={{ scale: 1.2 }}
+              className={`text-white text-2xl transition ${item.color}`}
             >
-              <p className="text-sm text-gray-300 dark:text-gray-100">
-                &copy; {currentYear} Aniket. All rights reserved.
-              </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 italic mt-2">
-                "Simplicity ✨ fuels the engine 🛠️ of efficiency 🚀."
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </motion.footer>
-    </>
+              {item.icon}
+            </motion.a>
+          ))}
+        </motion.div>
+
+        {/* Footer Text */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-gray-300 text-sm"
+        >
+          © {year} Aniket. All rights reserved.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-gray-500 text-xs italic mt-2"
+        >
+          "Simplicity ✨ fuels the engine 🛠️ of efficiency 🚀."
+        </motion.p>
+      </div>
+    </footer>
   );
-};
-
-export default Footer;
+}

@@ -4,22 +4,21 @@
 
 /* src/index.css or your global CSS */
 .nav-link {
-    @apply text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition duration-300;
+  @apply text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition duration-300;
+}
+
+@keyframes blob {
+  0% {
+    border-radius: 45% 55% 55% 45% / 60% 40% 60% 40%;
   }
-  
-  @keyframes blob {
-    0% {
-      border-radius: 45% 55% 55% 45% / 60% 40% 60% 40%;
-    }
-    50% {
-      border-radius: 55% 45% 45% 55% / 40% 60% 40% 60%;
-    }
-    100% {
-      border-radius: 45% 55% 55% 45% / 60% 40% 60% 40%;
-    }
+  50% {
+    border-radius: 55% 45% 45% 55% / 40% 60% 40% 60%;
   }
-  
-  .animate-blob {
-    animation: blob 8s infinite ease-in-out;
+  100% {
+    border-radius: 45% 55% 55% 45% / 60% 40% 60% 40%;
   }
-  
+}
+
+.animate-blob {
+  animation: blob 8s infinite ease-in-out;
+}

@@ -1,22 +1,25 @@
-// src/components/WhatsAppButton.jsx
-import React from 'react';
-import { FaWhatsapp } from 'react-icons/fa';
+import React from "react";
+import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
 
-const WhatsAppButton = () => {
-  const phoneNumber = 'your-phone-number'; // Replace with your WhatsApp phone number
+export default function WhatsAppButton() {
+  const phoneNumber = "9548477167";
 
-  const handleClick = () => {
-    window.open(`https://wa.me/${phoneNumber}`, '_blank');
+  const openChat = () => {
+    window.open(`https://wa.me/${phoneNumber}`, "_blank");
   };
 
   return (
-    <div
-      onClick={handleClick}
-      className="fixed bottom-8 right-8 p-4 bg-green-500 text-white rounded-full shadow-lg cursor-pointer transition transform hover:scale-110 hover:bg-green-600"
+    <motion.button
+      onClick={openChat}
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.4 }}
+      whileHover={{ scale: 1.15 }}
+      whileTap={{ scale: 0.95 }}
+      className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 text-white shadow-[0_0_20px_rgba(0,255,120,0.5)] hover:shadow-[0_0_30px_rgba(0,255,120,0.8)] backdrop-blur-xl border border-white/10"
     >
-      <FaWhatsapp size={28} />
-    </div>
+      <FaWhatsapp size={30} className="drop-shadow-[0_0_8px_rgba(0,255,120,0.8)]" />
+    </motion.button>
   );
-};
-
-export default WhatsAppButton;
+}

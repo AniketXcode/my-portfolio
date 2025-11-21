@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactTyped } from "react-typed";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaCode } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function LandingPage({ onExploreClick }) {
@@ -36,7 +36,10 @@ export default function LandingPage({ onExploreClick }) {
           transition={{ duration: 1 }}
           className="text-6xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-[0_0_30px_rgba(0,200,255,0.4)]"
         >
-          Hi, I'm <span className="bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">Aniket</span>
+          Hi, I'm{" "}
+          <span className="bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">
+            Aniket
+          </span>
         </motion.h1>
 
         {/* Typed text */}
@@ -57,16 +60,28 @@ export default function LandingPage({ onExploreClick }) {
 
         {/* Social Icons */}
         <div className="flex justify-center gap-8 mb-10">
-          {[{
-            icon: <FaGithub size={34} />, color: "#999"
-          }, {
-            icon: <FaLinkedin size={34} />, color: "#0A66C2"
-          }, {
-            icon: <FaInstagram size={34} />, color: "#E1306C"
-          }].map((item, index) => (
+          {[
+            {
+              icon: <FaGithub size={34} />,
+              color: "#999",
+              link: "https://github.com/AniketXcode",
+            },
+            {
+              icon: <FaLinkedin size={34} />,
+              color: "#0A66C2",
+              link: "https://www.linkedin.com/in/aniketxcode/",
+            },
+            {
+              icon: <FaCode size={34} />,
+              color: "#E1306C",
+              link: "https://leetcode.com/u/uqHeK1S5S8/",
+            },
+          ].map((item, index) => (
             <motion.a
               key={index}
-              href="#"
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.25, color: item.color }}
               transition={{ type: "spring", stiffness: 200 }}
               className="text-gray-300 hover:cursor-pointer"
@@ -78,7 +93,10 @@ export default function LandingPage({ onExploreClick }) {
 
         {/* Explore Button */}
         <motion.button
-          whileHover={{ scale: 1.08, boxShadow: "0px 0px 18px rgba(0,200,255,0.7)" }}
+          whileHover={{
+            scale: 1.08,
+            boxShadow: "0px 0px 18px rgba(0,200,255,0.7)",
+          }}
           whileTap={{ scale: 0.95 }}
           onClick={onExploreClick}
           className="px-10 py-4 rounded-full text-lg font-semibold bg-gradient-to-r from-blue-500 to-cyan-400 text-black shadow-lg hover:shadow-[0_0_20px_rgba(0,200,255,0.5)] transition-all"

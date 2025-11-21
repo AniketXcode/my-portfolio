@@ -3,7 +3,6 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa";
 
-// -------------------- LIQUID GLASS CURSOR --------------------
 function LiquidCursor() {
   const cursorRef = useRef(null);
 
@@ -38,12 +37,11 @@ function LiquidCursor() {
   );
 }
 
-// -------------------------- HERO SECTION -------------------------
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-black text-white overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-black text-white overflow-hidden cursor-none"
     >
       {/* Liquid Glass Cursor */}
       <LiquidCursor />

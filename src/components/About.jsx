@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-black text-white"
+      className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-black text-white cursor-none"
     >
       {/* Subtle radial spotlight */}
       <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none">

@@ -4,22 +4,22 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
-    title: "Portfolio",
-    img: "Portfolio.png",
-    github: "https://github.com/Ueslly-Code/my-portfolio.git",
-    demo: "https://my-portfolio-8q41.vercel.app/",
+    title: "Next-Meet",
+    img: "meet.png",
+    github: "https://github.com/AniketXcode/Next-Meet.git",
+    demo: "https://next-meet-chi.vercel.app/",
   },
   {
-    title: "Calculator-App",
-    img: "calculator.png",
-    github: "https://github.com/Ueslly-Code/Calculator-App.git",
-    demo: "https://calculator-01079.netlify.app/",
+    title: "Xlense Analytics",
+    img: "xlense.png",
+    github: "https://github.com/AniketXcode/Xlense-Analytics.git",
+    demo: "https://github.com/AniketXcode/Xlense-Analytics.git",
   },
   {
-    title: "Todo-App",
-    img: "todo.png",
-    github: "https://github.com/Aniket2301079/QuickTasks.git",
-    demo: "https://quicktask1.netlify.app/",
+    title: "BlogHub",
+    img: "blog.png",
+    github: "https://github.com/AniketXcode/Blog-Hub.git",
+    demo: "https://github.com/AniketXcode/Blog-Hub.git",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function Projects() {
               <img
                 src={project.img}
                 alt={project.title}
-                className="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                className="w-full h-45 object-cover group-hover:scale-110 transition duration-500"
               />
             </div>
 

@@ -14,7 +14,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-black text-white"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-black text-white cursor-none"
     >
       {/* Radial Glow Background */}
       <div className="absolute inset-0 flex items-center justify-center -z-10">

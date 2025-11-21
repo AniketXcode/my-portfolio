@@ -1,18 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaGithub, FaCode } from "react-icons/fa";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-black text-white py-16 mt-20 overflow-hidden">
+    <footer className="relative bg-black text-white py-16 mt-20 overflow-hidden cursor-none">
       {/* Glow background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute w-[700px] h-[700px] bg-gradient-to-r from-blue-600/20 via-cyan-500/20 to-purple-600/20 blur-[160px] rounded-full left-1/2 top-0 -translate-x-1/2" />
       </div>
 
-      {/* Separator line with glow */}
+      {/* Separator line */}
       <div className="w-full h-[1px] bg-white/10 mb-10 shadow-[0_0_20px_rgba(0,200,255,0.5)]"></div>
 
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center px-6">
@@ -24,14 +24,32 @@ export default function Footer() {
           className="flex gap-6 mb-8"
         >
           {[
-            { icon: <FaFacebook />, color: "hover:text-blue-500" },
-            { icon: <FaInstagram />, color: "hover:text-pink-500" },
-            { icon: <FaTwitter />, color: "hover:text-cyan-400" },
-            { icon: <FaLinkedin />, color: "hover:text-blue-600" },
+            {
+              icon: <FaInstagram />,
+              color: "hover:text-pink-500",
+              link: "https://www.instagram.com/https.aniket.in/",
+            },
+            {
+              icon: <FaLinkedin />,
+              color: "hover:text-blue-600",
+              link: "https://www.linkedin.com/in/aniketxcode/",
+            },
+            {
+              icon: <FaGithub />,
+              color: "hover:text-gray-300",
+              link: "https://github.com/AniketXcode",
+            },
+            {
+              icon: <FaCode />,
+              color: "hover:text-yellow-400",
+              link: "https://leetcode.com/u/uqHeK1S5S8/",
+            },
           ].map((item, i) => (
             <motion.a
               key={i}
-              href="#"
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
               className={`text-white text-2xl transition ${item.color}`}
             >

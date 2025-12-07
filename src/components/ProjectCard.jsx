@@ -13,7 +13,7 @@ const projects = [
     title: "Xlense Analytics",
     img: "xlense.png",
     github: "https://github.com/AniketXcode/Xlense-Analytics.git",
-    demo: "https://github.com/AniketXcode/Xlense-Analytics.git",
+    demo: "https://xlens-alpha.vercel.app/",
   },
   {
     title: "BlogHub",

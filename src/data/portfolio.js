@@ -17,9 +17,9 @@ import {
 
 export const profile = {
   name: "Aniket",
-  role: "Frontend Developer",
+  role: "MERN Stack Developer",
   location: "India",
-  availability: "Open to internships and frontend roles",
+  availability: "Open to full-stack internships and MERN developer roles",
   email: "",
   phone: "+919548477167",
   resume: "/ANIKET-RESUME.pdf",
@@ -27,7 +27,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/aniketxcode/",
   leetcode: "https://leetcode.com/u/uqHeK1S5S8/",
   intro:
-    "I build fast, responsive React interfaces with clean component structure, practical animation, and a focus on real user workflows.",
+    "I build full-stack MERN applications with React frontends, Node.js/Express APIs, MongoDB data models, authentication flows, and deployment-ready code.",
 };
 
 export const navItems = [
@@ -46,9 +46,9 @@ export const socials = [
 ];
 
 export const highlights = [
-  { label: "React projects", value: "6+", icon: Blocks },
+  { label: "Full-stack projects", value: "6+", icon: Blocks },
   { label: "Live deployments", value: "4", icon: Globe2 },
-  { label: "Core stack", value: "MERN", icon: Server },
+  { label: "Primary stack", value: "MERN", icon: Server },
 ];
 
 export const projects = [
@@ -59,9 +59,9 @@ export const projects = [
     demo: "https://next-meet-chi.vercel.app/",
     type: "Video meeting platform",
     summary:
-      "A real-time meeting experience focused on clean joining flow, responsive layouts, and production deployment.",
-    stack: ["React", "Tailwind", "WebRTC", "Vercel"],
-    impact: ["Live meeting UI", "Responsive experience", "Deployment-ready build"],
+      "A real-time collaboration project with meeting flow, responsive React UI, and deployment-focused architecture.",
+    stack: ["React", "Node.js", "WebRTC", "Tailwind", "Vercel"],
+    impact: ["Real-time communication", "Responsive meeting flow", "Production deployment"],
   },
   {
     title: "Xlense Analytics",
@@ -70,9 +70,9 @@ export const projects = [
     demo: "https://xlens-alpha.vercel.app/",
     type: "Analytics dashboard",
     summary:
-      "A dashboard-style interface built for scanning metrics, visual hierarchy, and fast front-end interaction.",
-    stack: ["React", "Charts", "Tailwind", "Vercel"],
-    impact: ["Dashboard UX", "Data-focused layout", "Reusable UI sections"],
+      "A dashboard-style application built around data presentation, reusable UI sections, and clean analysis workflows.",
+    stack: ["React", "Charts", "REST APIs", "Tailwind", "Vercel"],
+    impact: ["Data-focused interface", "Reusable dashboard layout", "API-ready structure"],
   },
   {
     title: "BlogHub",
@@ -81,9 +81,9 @@ export const projects = [
     demo: "https://github.com/AniketXcode/Blog-Hub.git",
     type: "Content platform",
     summary:
-      "A blog application concept with content cards, navigation patterns, and a foundation for publishing workflows.",
+      "A full-stack blog platform foundation with content structure, backend-ready architecture, and database-driven publishing flow.",
     stack: ["React", "Node.js", "Express", "MongoDB"],
-    impact: ["Full-stack pattern", "Content structure", "API-ready architecture"],
+    impact: ["MERN architecture", "Content CRUD foundation", "Database-backed workflow"],
   },
 ];
 
@@ -107,58 +107,58 @@ export const skillGroups = [
   {
     title: "Backend",
     icon: Server,
-    skills: ["Node.js", "Express.js", "REST APIs", "Authentication", "Form handling"],
+    skills: ["Node.js", "Express.js", "REST APIs", "JWT/Auth", "Middleware", "Form handling"],
   },
   {
-    title: "Data",
+    title: "Database",
     icon: Database,
-    skills: ["MongoDB", "JSON", "API integration", "Dashboard UI"],
+    skills: ["MongoDB", "Mongoose", "Schemas", "CRUD", "JSON", "API integration"],
   },
   {
-    title: "Tools",
+    title: "Deployment",
     icon: Wrench,
-    skills: ["Git", "GitHub", "Vite", "Vercel", "ESLint", "Responsive testing"],
+    skills: ["Git", "GitHub", "Vite", "Vercel", "Render", "ESLint", "Responsive testing"],
   },
 ];
 
 export const timeline = [
   {
-    title: "Frontend focused developer",
-    meta: "React, Tailwind, animation systems",
+    title: "MERN stack developer",
+    meta: "React, Node.js, Express, MongoDB",
     icon: BriefcaseBusiness,
     text:
-      "Building practical web interfaces with reusable components, clean layout systems, and polished interaction states.",
+      "Building end-to-end web applications with reusable React components, backend routes, API integration, and database-backed features.",
   },
   {
-    title: "MERN stack learning path",
-    meta: "Node.js, Express, MongoDB",
+    title: "Backend and API practice",
+    meta: "REST APIs, auth, CRUD workflows",
     icon: GraduationCap,
     text:
-      "Expanding from front-end UI into full-stack flows, API design, and deployable project architecture.",
+      "Strengthening server-side fundamentals through Express routes, middleware, request validation, authentication patterns, and MongoDB data modeling.",
   },
   {
     title: "Open for opportunities",
-    meta: "Internship and frontend roles",
+    meta: "Full-stack internships and MERN roles",
     icon: Rocket,
     text:
-      "Looking for teams where I can contribute UI work, learn production practices, and grow with strong engineering feedback.",
+      "Looking for teams where I can contribute to UI, APIs, database flows, debugging, and production-ready feature delivery.",
   },
 ];
 
 export const valueCards = [
   {
-    title: "Clean UI systems",
-    text: "Component-driven layouts, consistent spacing, and reusable patterns instead of one-off styling.",
+    title: "End-to-end thinking",
+    text: "I connect UI screens with API contracts, database structure, validation, and user workflows.",
     icon: Sparkles,
   },
   {
-    title: "Performance mindset",
-    text: "Lightweight pages, optimized images, stable layouts, and animation that does not block the main workflow.",
+    title: "Production mindset",
+    text: "I care about deployable builds, stable layouts, clean code, meaningful errors, and maintainable project structure.",
     icon: BadgeCheck,
   },
   {
-    title: "Product thinking",
-    text: "Interfaces designed around what users need to do, not only how the page looks in a screenshot.",
+    title: "Job-ready workflow",
+    text: "I can work across GitHub, deployment platforms, REST APIs, MongoDB, and responsive React UI.",
     icon: Blocks,
   },
 ];

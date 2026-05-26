@@ -18,7 +18,7 @@ export default function About() {
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-6">
               <p className="text-sm font-semibold text-cyan-200">About {profile.name}</p>
               <h2 className="mt-2 text-3xl font-black text-white">
-                Frontend craft with full-stack curiosity.
+                Full-stack craft with MERN focus.
               </h2>
             </div>
           </div>
@@ -29,12 +29,12 @@ export default function About() {
             Profile
           </p>
           <h2 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">
-            I care about interfaces that are clear, fast, and easy to use.
+            I care about complete features, not only screens.
           </h2>
           <p className="mt-5 text-base leading-8 text-slate-300">
-            I am a front-end focused developer building with React, Tailwind, Node.js, and modern
-            deployment tools. My goal is to create work that looks polished but also explains the
-            problem, the solution, and the engineering decisions behind it.
+            I am a MERN stack developer building with React, Tailwind, Node.js, Express, MongoDB,
+            and modern deployment tools. My goal is to create work that is polished on the frontend,
+            reliable on the backend, and easy for a team to understand, test, and improve.
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">

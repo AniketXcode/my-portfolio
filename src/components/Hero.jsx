@@ -32,7 +32,7 @@ export default function Hero() {
             variants={fadeUp}
             className="max-w-4xl text-5xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            Building React interfaces that feel sharp, fast, and useful.
+            Building MERN stack apps from clean UI to working APIs.
           </motion.h1>
 
           <motion.p
@@ -97,7 +97,7 @@ export default function Hero() {
                   <p className="text-sm font-medium text-slate-400">Role</p>
                   <p className="mt-2 text-2xl font-black text-white">{profile.role}</p>
                   <p className="mt-3 text-sm leading-6 text-slate-300">
-                    React, Tailwind, UI polish, motion, and deployable front-end experiences.
+                    React, Node.js, Express, MongoDB, REST APIs, auth flows, and deployment-ready features.
                   </p>
                 </div>
                 <div className="grid grid-cols-3 gap-3">

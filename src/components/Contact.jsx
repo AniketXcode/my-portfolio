@@ -36,11 +36,11 @@ export default function Contact() {
             Contact
           </p>
           <h2 className="mt-3 text-4xl font-black tracking-tight text-white">
-            Let us build something useful.
+            Let us build full-stack features that ship.
           </h2>
           <p className="mt-5 text-base leading-7 text-slate-400">
-            Have an internship, frontend role, freelance task, or project idea? Send a message and
-            I will get back to you.
+            Have an internship, MERN developer role, freelance task, or project idea? Send a
+            message and I will get back to you.
           </p>
 
           <div className="mt-8 grid gap-3">

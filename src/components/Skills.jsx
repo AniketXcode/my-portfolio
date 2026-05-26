@@ -12,11 +12,11 @@ export default function Skills() {
               Stack
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">
-              Skills shown like a real engineering toolkit.
+              MERN skills shown like a real engineering toolkit.
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-400">
-              Recruiters trust grouped capabilities more than percentage bars. This section now makes
-              your current stack easier to scan.
+              Recruiters should quickly see that you can handle frontend, backend, database,
+              deployment, and the glue between them.
             </p>
           </div>
 

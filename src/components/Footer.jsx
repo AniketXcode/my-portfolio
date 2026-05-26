@@ -10,7 +10,7 @@ export default function Footer() {
         <div>
           <p className="text-lg font-black text-white">{profile.name}</p>
           <p className="mt-1 text-sm text-slate-400">
-            {profile.role} focused on React interfaces and deployable product UI.
+            {profile.role} focused on React, Node.js, Express, MongoDB, and deployable product features.
           </p>
         </div>
 

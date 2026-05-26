@@ -1,116 +1,157 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Github, Linkedin, Mail, MessageSquare, Send } from "lucide-react";
+import { profile } from "../data/portfolio";
 
 export default function Contact() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus("loading");
+
+    const form = event.currentTarget;
     const data = new FormData(form);
 
-    const res = await fetch("https://formspree.io/f/xnnpopvj", {
-      method: "POST",
-      body: data,
-      headers: { Accept: "application/json" },
-    });
+    try {
+      const response = await fetch("https://formspree.io/f/xnnpopvj", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
 
-    if (res.ok) {
-      setIsSubmitted(true);
+      if (!response.ok) throw new Error("Unable to send message");
       form.reset();
-      setTimeout(() => setIsSubmitted(false), 5000);
+      setStatus("success");
+    } catch {
+      setStatus("error");
     }
   };
 
   return (
-    <section
-      id="contact"
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-black text-white overflow-hidden"
-    >
-      {/* Background Glow */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute w-[900px] h-[900px] bg-gradient-to-r from-blue-700/30 via-cyan-600/20 to-purple-700/20 blur-[200px] top-1/3 left-1/2 -translate-x-1/2 rounded-full" />
-      </div>
+    <section id="contact" className="px-5 py-20 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-8 rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl md:grid-cols-[.85fr_1.15fr] md:p-8">
+        <div className="rounded-2xl bg-slate-950/70 p-6">
+          <p className="text-sm font-bold uppercase tracking-[0.24em] text-cyan-200">
+            Contact
+          </p>
+          <h2 className="mt-3 text-4xl font-black tracking-tight text-white">
+            Let us build something useful.
+          </h2>
+          <p className="mt-5 text-base leading-7 text-slate-400">
+            Have an internship, frontend role, freelance task, or project idea? Send a message and
+            I will get back to you.
+          </p>
 
-      {/* Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-5xl font-extrabold mb-10 bg-gradient-to-r from-blue-300 to-cyan-200 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(0,200,255,0.5)]"
-      >
-        Contact Me
-      </motion.h2>
+          <div className="mt-8 grid gap-3">
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-xl border border-white/10 p-4 text-slate-300 transition hover:border-cyan-300/40 hover:bg-cyan-300/10 hover:text-white"
+            >
+              <Linkedin className="h-5 w-5 text-cyan-200" />
+              LinkedIn
+            </a>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-xl border border-white/10 p-4 text-slate-300 transition hover:border-cyan-300/40 hover:bg-cyan-300/10 hover:text-white"
+            >
+              <Github className="h-5 w-5 text-cyan-200" />
+              GitHub
+            </a>
+            <a
+              href={`https://wa.me/${profile.phone.replace("+", "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-xl border border-white/10 p-4 text-slate-300 transition hover:border-emerald-300/40 hover:bg-emerald-300/10 hover:text-white"
+            >
+              <MessageSquare className="h-5 w-5 text-emerald-200" />
+              WhatsApp
+            </a>
+          </div>
+        </div>
 
-      {/* Form Box */}
-      <motion.form
-        onSubmit={handleSubmit}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="w-full max-w-xl p-8 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
-      >
-        <motion.input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          required
-          whileHover={{ scale: 1.02 }}
-          whileFocus={{ scale: 1.03 }}
-          className="w-full p-3 mb-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
-        />
-
-        <motion.input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          required
-          whileHover={{ scale: 1.02 }}
-          whileFocus={{ scale: 1.03 }}
-          className="w-full p-3 mb-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
-        />
-
-        <motion.textarea
-          name="message"
-          rows="5"
-          placeholder="Your Message"
-          required
-          whileHover={{ scale: 1.01 }}
-          whileFocus={{ scale: 1.02 }}
-          className="w-full p-3 mb-6 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-400 outline-none resize-none"
-        />
-
-        <motion.button
-          type="submit"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold shadow-lg hover:shadow-[0_0_20px_rgba(0,200,255,0.6)] transition-all"
+        <motion.form
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          className="grid gap-4 rounded-2xl bg-slate-950/70 p-6"
         >
-          🚀 Send Message
-        </motion.button>
-      </motion.form>
+          <label className="grid gap-2 text-sm font-semibold text-slate-300">
+            Name
+            <input
+              type="text"
+              name="name"
+              required
+              className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50"
+              placeholder="Your name"
+            />
+          </label>
 
-      {/* Success message */}
-      <AnimatePresence>
-        {isSubmitted && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.4 }}
-            className="mt-6 px-6 py-4 rounded-lg bg-green-400/10 border border-green-400/30 text-green-300 backdrop-blur-xl shadow-lg"
+          <label className="grid gap-2 text-sm font-semibold text-slate-300">
+            Email
+            <input
+              type="email"
+              name="email"
+              required
+              className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50"
+              placeholder="you@example.com"
+            />
+          </label>
+
+          <label className="grid gap-2 text-sm font-semibold text-slate-300">
+            Message
+            <textarea
+              name="message"
+              rows="6"
+              required
+              className="resize-none rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50"
+              placeholder="Tell me about the role, project, or idea..."
+            />
+          </label>
+
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-300 px-5 py-3 text-sm font-black text-slate-950 transition hover:bg-cyan-200 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            ✅ Message sent successfully! I'll get back to you soon.
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {status === "loading" ? "Sending..." : "Send Message"}
+            <Send className="h-4 w-4" />
+          </button>
 
-      {/* Extra effects */}
-      <style>{`
-        .contact-glow {
-          filter: drop-shadow(0 0 20px rgba(0,200,255,0.5));
-        }
-      `}</style>
+          <AnimatePresence mode="wait">
+            {status === "success" && (
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 8 }}
+                className="rounded-xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-3 text-sm font-semibold text-emerald-200"
+              >
+                Message sent successfully. I will get back to you soon.
+              </motion.p>
+            )}
+            {status === "error" && (
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 8 }}
+                className="rounded-xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm font-semibold text-rose-200"
+              >
+                Message could not be sent. Please try WhatsApp or LinkedIn.
+              </motion.p>
+            )}
+          </AnimatePresence>
+
+          <p className="flex items-center gap-2 text-xs text-slate-500">
+            <Mail className="h-4 w-4" />
+            Powered by Formspree.
+          </p>
+        </motion.form>
+      </div>
     </section>
   );
 }

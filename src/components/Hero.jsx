@@ -1,147 +1,121 @@
-import React, { useEffect, useRef } from "react";
-import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
-import { FaChevronDown } from "react-icons/fa";
+import { ArrowRight, Download, MapPin } from "lucide-react";
+import { highlights, profile, socials } from "../data/portfolio";
 
-function LiquidCursor() {
-  const cursorRef = useRef(null);
-
-  useEffect(() => {
-    const cursor = cursorRef.current;
-
-    const moveCursor = (e) => {
-      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    };
-
-    window.addEventListener("mousemove", moveCursor);
-
-    return () => window.removeEventListener("mousemove", moveCursor);
-  }, []);
-
-  return (
-    <div
-      ref={cursorRef}
-      className="
-        fixed top-0 left-0 w-24 h-24 
-        pointer-events-none 
-        rounded-full opacity-70 
-        bg-[rgba(0,200,255,0.35)]
-        backdrop-blur-xl 
-        mix-blend-lighten 
-        -translate-x-1/2 -translate-y-1/2
-        z-[9999] 
-        border border-cyan-300/40 
-        shadow-[0_0_40px_rgba(0,200,255,0.4)]
-      "
-    />
-  );
-}
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0 },
+};
 
 export default function Hero() {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-black text-white overflow-hidden cursor-none"
-    >
-      {/* Liquid Glass Cursor */}
-      <LiquidCursor />
+    <section id="home" className="relative isolate overflow-hidden px-5 py-20 sm:py-24 lg:px-8">
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.04)_1px,transparent_1px)] bg-[size:72px_72px]" />
+      <div className="absolute left-1/2 top-10 -z-10 h-80 w-80 -translate-x-1/2 rounded-full bg-cyan-300/15 blur-3xl" />
 
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(0,150,255,0.15),transparent_60%)]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_80%,rgba(0,255,200,0.12),transparent_60%)]" />
-
-      {/* Floating neon particles */}
-      <motion.div
-        className="absolute w-6 h-6 bg-blue-500/30 rounded-full blur-xl"
-        animate={{ y: [0, -40, 0] }}
-        transition={{ duration: 5, repeat: Infinity }}
-        style={{ top: "30%", left: "15%" }}
-      />
-      <motion.div
-        className="absolute w-8 h-8 bg-cyan-500/30 rounded-full blur-xl"
-        animate={{ y: [0, 40, 0] }}
-        transition={{ duration: 6, repeat: Infinity }}
-        style={{ bottom: "20%", right: "10%" }}
-      />
-
-      {/* MAIN CONTAINER */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-14 w-full max-w-7xl">
-
-        {/* LEFT - TEXT */}
-        <div className="flex-1 text-center md:text-left space-y-6 max-w-xl">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-6xl md:text-7xl font-extrabold leading-tight drop-shadow-[0_0_20px_rgba(0,200,255,0.4)]"
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_.95fr]">
+        <motion.div
+          initial="hidden"
+          animate="show"
+          transition={{ staggerChildren: 0.1 }}
+          className="max-w-3xl"
+        >
+          <motion.div
+            variants={fadeUp}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1.5 text-sm font-medium text-emerald-200"
           >
-            Hi, I'm
-            <br />
-            <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 text-transparent bg-clip-text animate-pulse">
-              Aniket
-            </span>
+            <span className="h-2 w-2 rounded-full bg-emerald-300" />
+            {profile.availability}
+          </motion.div>
+
+          <motion.h1
+            variants={fadeUp}
+            className="max-w-4xl text-5xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl"
+          >
+            Building React interfaces that feel sharp, fast, and useful.
           </motion.h1>
 
-          <TypeAnimation
-            sequence={[
-              "Full-Stack Developer 💻", 2000,
-              "UI/UX Enthusiast 🎨", 2000,
-              "Tech Innovator ⚡", 2000
-            ]}
-            wrapper="span"
-            speed={40}
-            repeat={Infinity}
-            className="text-3xl font-bold bg-gradient-to-r from-cyan-200 to-blue-300 text-transparent bg-clip-text"
-          />
-
-          <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-            I build futuristic web experiences with smooth animations, clean UI,
-            and high-performance code. Your ideas → my execution.
-          </p>
-
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1.8 }}
-            className="mt-10 text-4xl text-cyan-400 hidden md:block"
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 max-w-2xl text-lg leading-8 text-slate-300"
           >
-            <FaChevronDown />
+            {profile.intro}
+          </motion.p>
+
+          <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#projects"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 shadow-[0_20px_60px_rgba(103,232,249,.25)] transition hover:-translate-y-0.5 hover:bg-cyan-200"
+            >
+              View Projects
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href={profile.resume}
+              download
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/5"
+            >
+              <Download className="h-4 w-4" />
+              Download Resume
+            </a>
           </motion.div>
-        </div>
 
-        {/* RIGHT - IMAGE AREA */}
-        <div className="flex-1 flex justify-center items-center relative">
-
-          {/* Glowing morphing blob */}
-          <motion.div
-            className="absolute w-80 h-80 bg-gradient-to-br from-blue-500/40 to-cyan-400/40 rounded-full blur-2xl"
-            animate={{ borderRadius: ["40%", "60%", "50%", "35%", "40%"], scale: [1, 1.05, 1] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          />
-
-          {/* Profile image with neon ring */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-            className="relative"
-          >
-            <div className="absolute inset-0 rounded-full p-[3px] bg-gradient-to-r from-blue-400 to-cyan-400 animate-spin-slow"></div>
-            <img
-              src="/profile.jpg"
-              alt="Profile"
-              className="w-72 h-72 md:w-80 md:h-80 object-cover rounded-full shadow-[0_0_80px_rgba(0,200,255,0.4)] relative z-10"
-            />
+          <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-3">
+            {socials.slice(0, 3).map(({ label, href, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-slate-300 transition hover:border-cyan-300/40 hover:text-cyan-200"
+                aria-label={label}
+              >
+                <Icon className="h-5 w-5" />
+              </a>
+            ))}
+            <span className="inline-flex items-center gap-2 text-sm text-slate-400">
+              <MapPin className="h-4 w-4 text-cyan-200" />
+              {profile.location}
+            </span>
           </motion.div>
-        </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="relative"
+        >
+          <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-cyan-300/25 via-white/5 to-rose-300/20 blur-2xl" />
+          <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-4 shadow-2xl backdrop-blur">
+            <div className="grid gap-4 sm:grid-cols-[.85fr_1fr]">
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950">
+                <img src="/profile.png" alt={profile.name} className="h-full min-h-72 w-full object-cover" />
+              </div>
+              <div className="flex flex-col justify-between gap-4">
+                <div className="rounded-2xl border border-white/10 bg-slate-950/70 p-5">
+                  <p className="text-sm font-medium text-slate-400">Role</p>
+                  <p className="mt-2 text-2xl font-black text-white">{profile.role}</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">
+                    React, Tailwind, UI polish, motion, and deployable front-end experiences.
+                  </p>
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  {highlights.map(({ label, value, icon: Icon }) => (
+                    <div key={label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                      <Icon className="mb-3 h-5 w-5 text-cyan-200" />
+                      <p className="text-2xl font-black text-white">{value}</p>
+                      <p className="mt-1 text-xs leading-5 text-slate-400">{label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
-      {/* CUSTOM STYLES */}
-      <style>{`
-        @keyframes spin-slow {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      `}</style>
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
     </section>
   );
 }

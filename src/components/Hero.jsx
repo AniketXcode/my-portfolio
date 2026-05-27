@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download, MapPin } from "lucide-react";
 import { highlights, profile, socials } from "../data/portfolio";
+import { scrollToSection } from "../utils/scrollToSection";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -43,13 +44,14 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#projects"
+            <button
+              type="button"
+              onClick={() => scrollToSection("projects")}
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 shadow-[0_20px_60px_rgba(103,232,249,.25)] transition hover:-translate-y-0.5 hover:bg-cyan-200"
             >
               View Projects
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </button>
             <a
               href={profile.resume}
               download

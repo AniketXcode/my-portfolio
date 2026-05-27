@@ -15,6 +15,10 @@ export default function App() {
   const [projects, setProjects] = useState(defaultProjects);
 
   useEffect(() => {
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+
     try {
       const storedProjects = window.localStorage.getItem(projectStorageKey);
       if (storedProjects) {

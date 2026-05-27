@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Download } from "lucide-react";
 import { profile, timeline } from "../data/portfolio";
+import { scrollToSection } from "../utils/scrollToSection";
 
 export default function About() {
   return (
@@ -46,13 +47,14 @@ export default function About() {
               <Download className="h-4 w-4" />
               Download Resume
             </a>
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={() => scrollToSection("contact")}
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-5 py-3 text-sm font-bold text-white transition hover:border-white/25 hover:bg-white/5"
             >
               Contact Me
               <ArrowUpRight className="h-4 w-4" />
-            </a>
+            </button>
           </div>
 
           <div className="mt-8 space-y-4">

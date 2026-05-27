@@ -72,7 +72,7 @@ export default function Projects({ projects }) {
 
                 <div className="mt-6 flex gap-3 pt-2">
                   <a
-                    href={project.demo || "#projects"}
+                    href={project.demo || "/"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-cyan-200"
@@ -81,7 +81,7 @@ export default function Projects({ projects }) {
                     <ArrowUpRight className="h-4 w-4" />
                   </a>
                   <a
-                    href={project.github || "#projects"}
+                    href={project.github || "/"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-lg border border-white/10 px-4 py-2.5 text-slate-200 transition hover:border-cyan-300/40 hover:bg-cyan-300/10"

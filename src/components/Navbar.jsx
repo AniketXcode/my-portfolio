@@ -2,6 +2,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react
 import { motion } from "framer-motion";
 import { Download, Menu, X } from "lucide-react";
 import { navItems, profile } from "../data/portfolio";
+import { scrollToSection } from "../utils/scrollToSection";
 
 export default function Navbar() {
   return (
@@ -9,7 +10,11 @@ export default function Navbar() {
       {({ open, close }) => (
         <>
           <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
-            <a href="#home" className="group inline-flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => scrollToSection("home")}
+              className="group inline-flex items-center gap-3 text-left"
+            >
               <span className="grid h-9 w-9 place-items-center rounded-lg border border-cyan-300/30 bg-cyan-300/10 text-sm font-black text-cyan-200">
                 A
               </span>
@@ -17,17 +22,18 @@ export default function Navbar() {
                 <span className="block text-sm font-semibold text-white">{profile.name}</span>
                 <span className="block text-xs text-slate-400">{profile.role}</span>
               </span>
-            </a>
+            </button>
 
             <div className="hidden items-center gap-7 md:flex">
               {navItems.map((item) => (
-                <a
+                <button
+                  type="button"
                   key={item.href}
-                  href={`#${item.href}`}
+                  onClick={() => scrollToSection(item.href)}
                   className="text-sm font-medium text-slate-300 transition hover:text-white"
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
             </div>
 
@@ -58,14 +64,17 @@ export default function Navbar() {
           >
             <div className="mx-auto flex max-w-7xl flex-col gap-2">
               {navItems.map((item) => (
-                <a
+                <button
+                  type="button"
                   key={item.href}
-                  href={`#${item.href}`}
-                  onClick={() => close()}
-                  className="rounded-lg px-3 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/5"
+                  onClick={() => {
+                    scrollToSection(item.href);
+                    close();
+                  }}
+                  className="rounded-lg px-3 py-3 text-left text-sm font-medium text-slate-200 transition hover:bg-white/5"
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
               <a
                 href={profile.resume}

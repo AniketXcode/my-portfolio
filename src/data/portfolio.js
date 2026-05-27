@@ -42,7 +42,7 @@ export const socials = [
   { label: "GitHub", href: profile.github, icon: Github },
   { label: "LinkedIn", href: profile.linkedin, icon: Linkedin },
   { label: "LeetCode", href: profile.leetcode, icon: Code2 },
-  { label: "Contact", href: "#contact", icon: Mail },
+  { label: "Contact", href: "contact", icon: Mail, internal: true },
 ];
 
 export const highlights = [

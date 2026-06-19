@@ -12,12 +12,9 @@ export default function Projects({ projects }) {
               Featured Work
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">
-              Full-stack projects with practical value.
+              Full-stack projects with practical value
             </h2>
           </div>
-          <p className="max-w-xl text-base leading-7 text-slate-400">
-            Each project highlights the stack, product goal, and engineering value for job screening.
-          </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">

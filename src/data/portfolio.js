@@ -53,43 +53,58 @@ export const highlights = [
 
 export const projects = [
   {
+    title: "InterviewArc",
+    image: "/Interviewarc.png",
+    github: "https://github.com/AniketXcode/InterviewArc",
+    demo: "https://interviewarc.tech/",
+    type: "Web application",
+    summary:
+      "An AI-powered interview preparation platform that delivers realistic mock interviews with adaptive follow-up questions and resume-aware prompts, helping candidates build confidence and perform better in real hiring rounds.",
+    stack: ["React", "Node.js", "AI/LLM", "MongoDB", "Vercel"],
+    impact: [
+      "AI-driven adaptive interview simulations",
+      "Resume-aware question generation",
+      "Performance tracking with detailed analytics",
+    ],
+  },
+  {
     title: "Next-Meet",
-    image: "/meet.png",
-    github: "https://github.com/AniketXcode/Next-Meet.git",
+    image: "/next.png",
+    github: "https://github.com/AniketXcode/Next-Meet",
     demo: "https://next-meet-chi.vercel.app/",
     type: "Video meeting platform",
     summary:
-      "A real-time collaboration project with meeting flow, responsive React UI, and deployment-focused architecture.",
+      "A real-time video conferencing application built for seamless collaboration, featuring instant meeting creation, scheduling, and a responsive interface optimized for production use.",
     stack: ["React", "Node.js", "WebRTC", "Tailwind", "Vercel"],
-    impact: ["Real-time communication", "Responsive meeting flow", "Production deployment"],
+    impact: [
+      "Low-latency real-time communication via WebRTC",
+      "Fully responsive meeting interface across devices",
+      "Deployed in a production-ready environment",
+    ],
   },
   {
     title: "Xlense Analytics",
-    image: "/xlense.png",
-    github: "https://github.com/AniketXcode/Xlense-Analytics.git",
+    image: "/xlens.png",
+    github: "https://github.com/AniketXcode/Xlense-Analytics",
     demo: "https://xlens-alpha.vercel.app/",
     type: "Analytics dashboard",
     summary:
-      "A dashboard-style application built around data presentation, reusable UI sections, and clean analysis workflows.",
+      "A data visualization platform that transforms raw Excel data into interactive 2D and 3D charts, enabling users to extract insights through a clean, dashboard-driven interface.",
     stack: ["React", "Charts", "REST APIs", "Tailwind", "Vercel"],
-    impact: ["Data-focused interface", "Reusable dashboard layout", "API-ready structure"],
-  },
-  {
-    title: "BlogHub",
-    image: "/blog.png",
-    github: "https://github.com/AniketXcode/Blog-Hub.git",
-    demo: "https://github.com/AniketXcode/Blog-Hub.git",
-    type: "Content platform",
-    summary:
-      "A full-stack blog platform foundation with content structure, backend-ready architecture, and database-driven publishing flow.",
-    stack: ["React", "Node.js", "Express", "MongoDB"],
-    impact: ["MERN architecture", "Content CRUD foundation", "Database-backed workflow"],
+    impact: [
+      "Interactive 2D/3D chart generation from Excel data",
+      "Modular reusable dashboard components",
+      "Clean REST API-driven architecture",
+    ],
   },
 ];
 
 export const projectStorageKey = "aniket-owner-projects-v1";
 
 export const projectImageOptions = [
+  "/Interviewarc.png",
+  "/next.png",
+  "/xlens.png",
   "/meet.png",
   "/xlense.png",
   "/blog.png",

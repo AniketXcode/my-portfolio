@@ -6,7 +6,7 @@ Hey there!
 Welcome to my personal portfolio project — a place where I showcase my work, skills, and passion for web development. Built using **React** and **Vite.js**, this portfolio reflects my journey and growth as a developer.
 
 ## 🚀 Live Demo
-[View Portfolio Live](https://my-portfolio-8q41.vercel.app/)  
+[View Portfolio Live](https://portfolio-aniket.vercel.app/)  
 
 ---
 
